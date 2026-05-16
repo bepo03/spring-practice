@@ -46,13 +46,13 @@ src/main/java/com/bepo/layeredpostapi/
 
 ## 구현 체크리스트
 
-- [ ] `Post` 엔티티 생성
-- [ ] `PostRepository extends JpaRepository<Post, Long>` 생성
-- [ ] `PostCreateRequest` DTO 생성
-- [ ] `PostService.create(...)` 구현
-- [ ] `PostController`에서 `POST /api/posts` 구현
-- [ ] 제목 빈 값 검증 시 400 응답 처리
-- [ ] 제목 중복 시 `"중복된 제목입니다"` 예외 처리
+- [x] `Post` 엔티티 생성
+- [x] `PostRepository extends JpaRepository<Post, Long>` 생성
+- [x] `PostCreateRequest` DTO 생성
+- [x] `PostService.create(...)` 구현
+- [x] `PostController`에서 `POST /api/posts` 구현
+- [x] 제목 빈 값 검증 시 400 응답 처리
+- [x] 제목 중복 시 `"중복된 제목입니다"` 예외 처리
 
 ## 필요한 의존성
 
@@ -96,9 +96,9 @@ HTTP/1.1 201 Created
 
 다음 코드가 어느 계층에 있어야 하는지 스스로 정리합니다.
 
-| 코드 | 예상 계층 |
-| --- | --- |
-| `if (member.getAge() < 19) throw new MinorException();` |  |
-| `return ResponseEntity.ok(response);` |  |
-| `entityManager.persist(member);` |  |
-| `if (request.getEmail() == null) throw ValidationException...` |  |
+| 코드 | 예상 계층         |
+| --- |---------------|
+| `if (member.getAge() < 19) throw new MinorException();` | Service 계층    |
+| `return ResponseEntity.ok(response);` | Controller 계층 |
+| `entityManager.persist(member);` | Repository 계층 |
+| `if (request.getEmail() == null) throw ValidationException...` | DTO 계층        |

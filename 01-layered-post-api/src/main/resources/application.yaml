@@ -1,3 +1,19 @@
 spring:
   application:
     name: 01-layered-post-api
+
+  datasource:
+    url: jdbc:h2:mem:postdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
