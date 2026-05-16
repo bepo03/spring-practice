@@ -1,0 +1,151 @@
+### Java ###
+*.class
+*.ctxt
+
+### Package files ###
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### Gradle ###
+.gradle/
+**/.gradle/
+build/
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Keep Gradle Wrapper files in Git.
+!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!**/gradle/wrapper/gradle-wrapper.properties
+
+gradle-app.setting
+.gradletasknamecache
+
+### Maven ###
+target/
+**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+### Spring Boot ###
+HELP.md
+**/HELP.md
+application-local.yml
+application-local.yaml
+**/application-local.yml
+**/application-local.yaml
+application-*.local.yml
+application-*.local.yaml
+**/application-*.local.yml
+**/application-*.local.yaml
+
+### Environment ###
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+### Logs ###
+*.log
+logs/
+**/logs/
+
+### JVM crash logs ###
+hs_err_pid*
+replay_pid*
+
+### IntelliJ IDEA ###
+.idea/
+**/.idea/
+*.iws
+*.iml
+*.ipr
+**/*.iws
+**/*.iml
+**/*.ipr
+out/
+**/out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+# IntelliJ local-only generated files
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries/
+.idea/**/shelf/
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+.idea/**/gradle.xml
+.idea/**/libraries/
+.idea/**/httpRequests/
+.idea/**/caches/
+.idea/**/copilot.data.migration.*.xml
+
+### Eclipse / STS ###
+.apt_generated/
+.apt_generated_test/
+.classpath
+.factorypath
+.project
+.settings/
+**/.settings/
+.springBeans
+.sts4-cache/
+**/.sts4-cache/
+bin/
+**/bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+.metadata/
+.recommenders/
+
+### NetBeans ###
+/nbproject/private/
+**/nbproject/private/
+/nbbuild/
+**/nbbuild/
+/dist/
+**/dist/
+/nbdist/
+**/nbdist/
+/.nb-gradle/
+**/.nb-gradle/
+
+### VS Code ###
+.vscode/
+**/.vscode/
+*.code-workspace
+
+### OS ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Local files ###
+_archive/
+_backup/
+_reference/
+**/_archive/
+**/_backup/
+**/_reference/
