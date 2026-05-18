@@ -86,16 +86,16 @@ public class PostLikeFacade {
 
 ## 구현 체크리스트
 
-- [ ] `Member` 엔티티 생성
-- [ ] `Post` 엔티티 생성
-- [ ] `PostLike` 엔티티 생성
-- [ ] `MemberRepository`, `PostRepository`, `PostLikeRepository` 생성
-- [ ] `MemberService.validateActiveMember(...)` 구현
-- [ ] `PostService.getPost(...)` 구현
-- [ ] `LikeService.addLike(...)` 구현
-- [ ] `NotificationService.sendLikeNotification(...)` 구현
-- [ ] `PostLikeFacade.like(...)`에서 전체 흐름 조합
-- [ ] `PostLikeController`에서 `POST /api/posts/{postId}/likes` 구현
+- [x] `Member` 엔티티 생성
+- [x] `Post` 엔티티 생성
+- [x] `PostLike` 엔티티 생성
+- [x] `MemberRepository`, `PostRepository`, `PostLikeRepository` 생성
+- [x] `MemberService.validateActiveMember(...)` 구현
+- [x] `PostService.getPost(...)` 구현
+- [x] `LikeService.addLike(...)` 구현
+- [x] `NotificationService.sendLikeNotification(...)` 구현
+- [x] `PostLikeFacade.like(...)`에서 전체 흐름 조합
+- [x] `PostLikeController`에서 `POST /api/posts/{postId}/likes` 구현
 
 ## 필요한 의존성
 
