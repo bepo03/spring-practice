@@ -70,15 +70,15 @@ HTTP 요청
 
 ## 구현 체크리스트
 
-- [ ] `Post` 도메인 객체 생성
-- [ ] `CreatePostUseCase` 입력 포트 생성
-- [ ] `PostRepository` 출력 포트 생성
-- [ ] `CreatePostService.create(...)` 구현
-- [ ] `PostJpaEntity` 생성
-- [ ] `PostJpaRepository extends JpaRepository<PostJpaEntity, Long>` 생성
-- [ ] `PostPersistenceAdapter`에서 출력 포트 구현
-- [ ] `PostController`에서 `POST /api/posts` 구현
-- [ ] 제목 중복 시 `"중복된 제목입니다"` 예외 처리
+- [x] `Post` 도메인 객체 생성
+- [x] `CreatePostUseCase` 입력 포트 생성
+- [x] `PostRepository` 출력 포트 생성
+- [x] `CreatePostService.create(...)` 구현
+- [x] `PostJpaEntity` 생성
+- [x] `PostJpaRepository extends JpaRepository<PostJpaEntity, Long>` 생성
+- [x] `PostPersistenceAdapter`에서 출력 포트 구현
+- [x] `PostController`에서 `POST /api/posts` 구현
+- [x] 제목 중복 시 `"중복된 제목입니다"` 예외 처리
 
 ## 필요한 의존성
 
