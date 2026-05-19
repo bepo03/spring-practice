@@ -9,6 +9,8 @@ Spring Boot 수업과 실습 과제를 정리하는 저장소입니다.
 | 번호 | 프로젝트 | 주제 |
 | --- | --- | --- |
 | 01 | [01-layered-post-api](./01-layered-post-api) | 레이어드 아키텍처로 게시글 등록 API 만들기 |
+| 02 | [02-facade-post-like](./02-facade-post-like) | Facade 패턴으로 게시글 좋아요 흐름 만들기 |
+| 03 | [03-hexagonal-post-api](./03-hexagonal-post-api) | 헥사고날 아키텍처로 게시글 등록 API 만들기 |
 
 ## 관리 방식
 
@@ -21,6 +23,14 @@ Spring Boot 수업과 실습 과제를 정리하는 저장소입니다.
 spring-practice/
   README.md
   01-layered-post-api/
+    build.gradle
+    settings.gradle
+    src/
+  02-facade-post-like/
+    build.gradle
+    settings.gradle
+    src/
+  03-hexagonal-post-api/
     build.gradle
     settings.gradle
     src/
