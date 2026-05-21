@@ -1,0 +1,4 @@
+rootProject.name = 'msa-communication'
+
+include 'member-service'
+include 'order-service'
