@@ -1,9 +1,14 @@
 description = 'member-service'
 
 dependencies {
+
+    // Validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Web Mvc
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 
+    // TEST
     testImplementation 'org.springframework.boot:spring-boot-starter-validation-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 }

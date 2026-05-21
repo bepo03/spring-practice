@@ -24,9 +24,12 @@ subprojects {
     }
 
     dependencies {
+
+        // Lombok
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
 
+        // TEST
         testCompileOnly 'org.projectlombok:lombok'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
         testAnnotationProcessor 'org.projectlombok:lombok'

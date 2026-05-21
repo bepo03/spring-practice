@@ -1,3 +1,17 @@
+server:
+  port: 8082
+
 spring:
   application:
     name: order-service
+
+  cloud:
+    openfeign:
+      client:
+        config:
+          member-service:
+            connect-timeout: 1000
+            read-timeout: 3000
+
+member-service:
+  url: http://localhost:8081
