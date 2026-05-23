@@ -219,6 +219,72 @@ curl -s -H "X-Beta: true" http://localhost:8080/api/v1/products/1 | python -m js
 
 `X-Beta=true` 헤더는 경로보다 우선 적용되므로, v1 경로로 요청해도 베타 응답이 오면 성공입니다.
 
+## 확장 실습. OpenFeign 서비스 간 통신
+
+`order-service`를 추가하고, 주문 생성 과정에서 OpenFeign으로 `member-service`를 호출합니다.
+
+```text
+Client
+  -> api-gateway
+  -> order-service
+      -> member-service
+```
+
+| 서비스 | 포트 | 역할 |
+| --- | --- | --- |
+| `order-service` | `8086` | 주문 생성 API 제공, 회원 서비스 호출 |
+
+### order-service
+
+```http
+POST /api/orders
+```
+
+주문 생성 요청을 받으면 `order-service`가 `member-service`에서 회원 정보를 조회한 뒤 주문 응답을 반환합니다.
+
+### OpenFeign 호출
+
+`order-service`는 Eureka에 등록된 서비스 이름으로 `member-service`를 호출합니다.
+
+```java
+@FeignClient(name = "member-service")
+public interface MemberFeignClient {
+
+    @GetMapping("/api/members/{id}")
+    MemberResponse findById(
+            @PathVariable Long id,
+            @RequestHeader(value = "X-Trace-Id", required = false) String traceId
+    );
+}
+```
+
+### Gateway 라우팅
+
+| 요청 경로 | 라우팅 대상 |
+| --- | --- |
+| `/api/orders/**` | `lb://order-service` |
+
+### 검증
+
+Gateway를 통해 주문 생성 API를 호출합니다.
+
+```bash
+curl -s -X POST http://localhost:8080/api/orders \
+  -H "Content-Type: application/json" \
+  -H "X-Trace-Id: order-trace-001" \
+  -d '{
+    "memberId": 1,
+    "productId": 100,
+    "quantity": 2
+  }' | python -m json.tool
+```
+
+`member-service` 로그에 다음과 같은 로그가 출력되면 Gateway에서 시작된 Trace ID가 내부 Feign 호출까지 전달된 것입니다.
+
+```text
+[traceId=order-trace-001] findById id=1
+```
+
 ## 구현 체크리스트
 
 ### 과제 1
@@ -255,3 +321,13 @@ curl -s -H "X-Beta: true" http://localhost:8080/api/v1/products/1 | python -m js
 - [x] Gateway에서 `/api/v2/products/**` 라우팅 구성
 - [x] Gateway에서 `X-Beta=true` 헤더 라우팅 구성
 - [x] Header Predicate가 Path Predicate보다 먼저 적용되는지 확인
+
+### 확장 실습
+
+- [x] `order-service` 모듈 생성
+- [x] `order-service` Eureka Client 등록
+- [x] `order-service` OpenFeign 활성화
+- [x] `MemberFeignClient` 생성
+- [x] `POST /api/orders` 구현
+- [x] Gateway에서 `/api/orders/**` 라우팅 구성
+- [x] OpenFeign 호출 시 `X-Trace-Id` 전달 확인

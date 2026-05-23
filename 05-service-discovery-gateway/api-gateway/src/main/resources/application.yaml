@@ -15,6 +15,11 @@ spring:
               predicates:
                 - Header=X-Beta, true
 
+            - id: order-service-route
+              uri: lb://order-service
+              predicates:
+                - Path=/api/orders/**
+
             - id: product-service-v1-route
               uri: lb://product-service-v1
               predicates:
