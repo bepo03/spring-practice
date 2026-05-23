@@ -1,0 +1,6 @@
+rootProject.name = 'service-discovery-gateway'
+
+include 'eureka-server'
+include 'member-service'
+include 'product-service'
+include 'api-gateway'
