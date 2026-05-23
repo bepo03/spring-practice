@@ -121,7 +121,52 @@ curl http://localhost:8080/api/members/1
 
 응답에 현재 서버 포트를 포함하면 `8081`, `8091` 응답이 번갈아 오는지 확인할 수 있습니다.
 
+## 과제 2. 글로벌 필터로 추적 ID 부여
+
+API Gateway의 글로벌 필터에서 모든 요청에 `X-Trace-Id` 헤더를 부여하고, 각 마이크로서비스에서 해당 헤더를 로그로 출력합니다.
+
+### TraceIdGlobalFilter
+
+Gateway로 들어온 요청에 `X-Trace-Id` 헤더가 없으면 UUID를 생성해 추가합니다.
+이미 `X-Trace-Id` 헤더가 있으면 기존 값을 유지합니다.
+
+```text
+Client
+  -> api-gateway
+  -> member-service 또는 product-service
+```
+
+### 로그 출력
+
+각 서비스 컨트롤러에서 `X-Trace-Id` 헤더를 받아 로그에 출력합니다.
+
+```java
+log.info("[traceId={}] findById id={}", traceId, id);
+```
+
+### 검증
+
+Gateway를 통해 요청합니다.
+
+```bash
+curl -s http://localhost:8080/api/members/1 | python -m json.tool
+```
+
+직접 Trace ID를 전달해서 확인할 수도 있습니다.
+
+```bash
+curl -s -H "X-Trace-Id: test-trace-001" http://localhost:8080/api/members/1 | python -m json.tool
+```
+
+`member-service` 로그에서 다음과 같은 로그가 출력되면 성공입니다.
+
+```text
+[traceId=test-trace-001] findById id=1
+```
+
 ## 구현 체크리스트
+
+### 과제 1
 
 - [x] Gradle 멀티모듈 프로젝트 구성
 - [x] `eureka-server` 모듈 생성
@@ -133,3 +178,12 @@ curl http://localhost:8080/api/members/1
 - [x] Gateway에서 `lb://product-service` 라우팅 구성
 - [x] `member-service` 두 인스턴스 실행
 - [x] Gateway 로드밸런싱 확인
+
+### 과제 2
+
+- [x] `api-gateway`에 `TraceIdGlobalFilter` 추가
+- [x] 요청에 `X-Trace-Id`가 없으면 UUID 생성
+- [x] 요청에 `X-Trace-Id`가 있으면 기존 값 유지
+- [x] `member-service`에서 `X-Trace-Id` 로그 출력
+- [x] `product-service`에서 `X-Trace-Id` 로그 출력
+- [x] Gateway 요청 후 서비스 로그에서 Trace ID 확인

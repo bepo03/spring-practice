@@ -10,13 +10,15 @@ spring:
       server:
         webflux:
           routes:
-            - id: member-service
+            - id: member-service-route
               uri: lb://member-service
+
               predicates:
                 - Path=/api/members/**
 
-            - id: product-service
+            - id: product-service-route
               uri: lb://product-service
+
               predicates:
                 - Path=/api/products/**
 eureka:
