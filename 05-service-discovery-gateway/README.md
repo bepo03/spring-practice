@@ -128,8 +128,8 @@ curl http://localhost:8080/api/members/1
 - [x] `member-service` 모듈 생성
 - [x] `product-service` 모듈 생성
 - [x] `api-gateway` 모듈 생성
-- [ ] `member-service`, `product-service` Eureka Client 등록
-- [ ] Gateway에서 `lb://member-service` 라우팅 구성
-- [ ] Gateway에서 `lb://product-service` 라우팅 구성
-- [ ] `member-service` 두 인스턴스 실행
-- [ ] Gateway 로드밸런싱 확인
+- [x] `member-service`, `product-service` Eureka Client 등록
+- [x] Gateway에서 `lb://member-service` 라우팅 구성
+- [x] Gateway에서 `lb://product-service` 라우팅 구성
+- [x] `member-service` 두 인스턴스 실행
+- [x] Gateway 로드밸런싱 확인
