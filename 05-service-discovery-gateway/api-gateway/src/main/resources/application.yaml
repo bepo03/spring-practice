@@ -10,15 +10,28 @@ spring:
       server:
         webflux:
           routes:
+            - id: beta-cluster-route
+              uri: lb://beta-cluster
+              predicates:
+                - Header=X-Beta, true
+
+            - id: product-service-v1-route
+              uri: lb://product-service-v1
+              predicates:
+                - Path=/api/v1/products/**
+
+            - id: product-service-v2-route
+              uri: lb://product-service-v2
+              predicates:
+                - Path=/api/v2/products/**
+
             - id: member-service-route
               uri: lb://member-service
-
               predicates:
                 - Path=/api/members/**
 
             - id: product-service-route
               uri: lb://product-service
-
               predicates:
                 - Path=/api/products/**
 eureka:

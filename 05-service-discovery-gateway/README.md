@@ -164,6 +164,61 @@ curl -s -H "X-Trace-Id: test-trace-001" http://localhost:8080/api/members/1 | py
 [traceId=test-trace-001] findById id=1
 ```
 
+## 과제 3. Predicate 응용
+
+Gateway Predicate를 사용해 요청 경로와 헤더에 따라 서로 다른 서비스 클러스터로 라우팅합니다.
+
+- `/api/v1/products/**` 요청은 `product-service-v1`로 라우팅한다.
+- `/api/v2/products/**` 요청은 `product-service-v2`로 라우팅한다.
+- `X-Beta=true` 헤더가 있는 요청은 `beta-cluster`로 라우팅한다.
+
+## 추가 서비스 구성
+
+```text
+05-service-discovery-gateway/
+  product-service-v1/
+  product-service-v2/
+  beta-cluster/
+```
+
+| 서비스 | 포트 | 역할 |
+| --- | --- | --- |
+| `product-service-v1` | `8083` | v1 상품 API 제공 |
+| `product-service-v2` | `8084` | v2 상품 API 제공 |
+| `beta-cluster` | `8085` | 베타 요청 처리 |
+
+### Gateway Predicate 라우팅
+
+`X-Beta=true` 요청은 모든 요청보다 먼저 `beta-cluster`로 라우팅되어야 하므로 가장 위에 둡니다.
+
+| 조건 | 라우팅 대상 |
+| --- | --- |
+| Header `X-Beta=true` | `lb://beta-cluster` |
+| Path `/api/v1/products/**` | `lb://product-service-v1` |
+| Path `/api/v2/products/**` | `lb://product-service-v2` |
+
+### 검증
+
+v1 상품 API를 Gateway로 호출합니다.
+
+```bash
+curl -s http://localhost:8080/api/v1/products/1 | python -m json.tool
+```
+
+v2 상품 API를 Gateway로 호출합니다.
+
+```bash
+curl -s http://localhost:8080/api/v2/products/1 | python -m json.tool
+```
+
+베타 헤더를 포함해 요청하면 `beta-cluster`로 라우팅됩니다.
+
+```bash
+curl -s -H "X-Beta: true" http://localhost:8080/api/v1/products/1 | python -m json.tool
+```
+
+`X-Beta=true` 헤더는 경로보다 우선 적용되므로, v1 경로로 요청해도 베타 응답이 오면 성공입니다.
+
 ## 구현 체크리스트
 
 ### 과제 1
@@ -187,3 +242,16 @@ curl -s -H "X-Trace-Id: test-trace-001" http://localhost:8080/api/members/1 | py
 - [x] `member-service`에서 `X-Trace-Id` 로그 출력
 - [x] `product-service`에서 `X-Trace-Id` 로그 출력
 - [x] Gateway 요청 후 서비스 로그에서 Trace ID 확인
+
+### 과제 3
+
+- [x] `product-service-v1` 모듈 생성
+- [x] `product-service-v2` 모듈 생성
+- [x] `beta-cluster` 모듈 생성
+- [x] `product-service-v1` Eureka Client 등록
+- [x] `product-service-v2` Eureka Client 등록
+- [x] `beta-cluster` Eureka Client 등록
+- [x] Gateway에서 `/api/v1/products/**` 라우팅 구성
+- [x] Gateway에서 `/api/v2/products/**` 라우팅 구성
+- [x] Gateway에서 `X-Beta=true` 헤더 라우팅 구성
+- [x] Header Predicate가 Path Predicate보다 먼저 적용되는지 확인
