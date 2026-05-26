@@ -1,3 +1,29 @@
+server:
+  port: 8000
+
 spring:
   application:
     name: 06-spring-cloud-gateway-mini-msa
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes: []
+
+#            - id: httpbin-demo
+#              uri: https://httpbin.org
+#              predicates:
+#                - Path=/echo/**
+#              filters:
+#                - RewritePath=/echo/(?<seg>.*), /$\{seg}
+#                - AddRequestHeader=X-Gateway, spring-cloud-gateway
+
+management:
+  endpoint:
+    gateway:
+      access: read-only
+  endpoints:
+    web:
+      exposure:
+        include: gateway,health,info
