@@ -212,13 +212,13 @@ implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
 - [x] Gradle 프로젝트 생성
 - [x] `payment-service` 모듈 생성
 - [x] `order-service` 모듈 생성
-- [ ] `payment-service` 결제 API 구현
-- [ ] `payment-service` 50% 실패 로직 구현
-- [ ] `order-service` 주문 API 구현
-- [ ] `order-service`에서 `payment-service` 호출
-- [ ] Resilience4j Circuit Breaker 적용
-- [ ] fallback 메서드 구현
-- [ ] Actuator로 Circuit Breaker 상태 확인
+- [x] `payment-service` 결제 API 구현
+- [x] `payment-service` 50% 실패 로직 구현
+- [x] `order-service` 주문 API 구현
+- [x] `order-service`에서 `payment-service` 호출
+- [x] Resilience4j Circuit Breaker 적용
+- [x] fallback 메서드 구현
+- [x] Actuator로 Circuit Breaker 상태 확인
 
 ### 과제 2
 
