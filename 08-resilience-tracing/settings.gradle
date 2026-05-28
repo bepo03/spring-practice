@@ -1,0 +1,4 @@
+rootProject.name = 'resilience-tracing'
+
+include 'payment-service'
+include 'order-service'
