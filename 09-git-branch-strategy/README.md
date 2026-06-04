@@ -50,18 +50,18 @@ main
 
 ### 체크리스트
 
-- [ ] `develop` 브랜치 생성
-- [ ] `feature/user-login` 브랜치 작업 후 `develop`에 병합
-- [ ] `feature/user-signup` 브랜치 작업 후 `develop`에 병합
-- [ ] `release/1.0.0` 브랜치 생성
-- [ ] `main`에 release 병합
-- [ ] `v1.0.0` 태그 생성
-- [ ] `develop`에 release 백포트
-- [ ] `hotfix/1.0.1-login-bug` 브랜치 생성
-- [ ] `main`에 hotfix 병합
-- [ ] `v1.0.1` 태그 생성
-- [ ] `develop`에 hotfix 백포트
-- [ ] `git log --all --oneline --graph --decorate`로 흐름 확인
+- [x] `develop` 브랜치 생성
+- [x] `feature/user-login` 브랜치 작업 후 `develop`에 병합
+- [x] `feature/user-signup` 브랜치 작업 후 `develop`에 병합
+- [x] `release/1.0.0` 브랜치 생성
+- [x] `main`에 release 병합
+- [x] `v1.0.0` 태그 생성
+- [x] `develop`에 release 백포트
+- [x] `hotfix/1.0.1-login-bug` 브랜치 생성
+- [x] `main`에 hotfix 병합
+- [x] `v1.0.1` 태그 생성
+- [x] `develop`에 hotfix 백포트
+- [x] `git log --all --oneline --graph --decorate`로 흐름 확인
 
 ## 실습 2. GitHub Flow 시뮬레이션
 
@@ -162,7 +162,7 @@ git tag -l
 
 ## 구현 체크리스트
 
-- [ ] 실습 1 Git Flow 시뮬레이션 완료
+- [x] 실습 1 Git Flow 시뮬레이션 완료
 - [ ] 실습 2 GitHub Flow 시뮬레이션 완료
 - [ ] 실습 3 Trunk-Based + Feature Flag 완료
 - [ ] 실습 4 SemVer + Tag 완료
