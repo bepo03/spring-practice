@@ -95,12 +95,12 @@ main
 
 ### 체크리스트
 
-- [ ] Feature Flag 기본값 OFF 구조 생성
-- [ ] 새 검색 알고리즘을 짧은 브랜치에서 구현
-- [ ] flag OFF 상태로 `main`에 병합
-- [ ] 별도 브랜치에서 flag ON 전환
-- [ ] 안정화 후 flag 제거 브랜치 생성
-- [ ] `git log --oneline --graph`로 짧은 브랜치 흐름 확인
+- [x] Feature Flag 기본값 OFF 구조 생성
+- [x] 새 검색 알고리즘을 짧은 브랜치에서 구현
+- [x] flag OFF 상태로 `main`에 병합
+- [x] 별도 브랜치에서 flag ON 전환
+- [x] 안정화 후 flag 제거 브랜치 생성
+- [x] `git log --oneline --graph`로 짧은 브랜치 흐름 확인
 
 ## 실습 4. SemVer + Tag 실습
 
@@ -164,6 +164,6 @@ git tag -l
 
 - [x] 실습 1 Git Flow 시뮬레이션 완료
 - [x] 실습 2 GitHub Flow 시뮬레이션 완료
-- [ ] 실습 3 Trunk-Based + Feature Flag 완료
+- [x] 실습 3 Trunk-Based + Feature Flag 완료
 - [ ] 실습 4 SemVer + Tag 완료
 - [ ] 실습 5 Branch Protection 설정 완료
