@@ -76,11 +76,11 @@ main
 
 ### 체크리스트
 
-- [ ] `feat/search` 브랜치 작업 후 `main`에 병합
-- [ ] `feat/login` 브랜치 작업 후 `main`에 병합
-- [ ] `fix/search-bug` 브랜치 작업 후 `main`에 병합
-- [ ] 작업 브랜치 삭제
-- [ ] `git log --all --oneline --graph`로 Git Flow와 차이 비교
+- [x] `feat/search` 브랜치 작업 후 `main`에 병합
+- [x] `feat/login` 브랜치 작업 후 `main`에 병합
+- [x] `fix/search-bug` 브랜치 작업 후 `main`에 병합
+- [x] 작업 브랜치 삭제
+- [x] `git log --all --oneline --graph`로 Git Flow와 차이 비교
 
 ## 실습 3. Trunk-Based + Feature Flag
 
@@ -163,7 +163,7 @@ git tag -l
 ## 구현 체크리스트
 
 - [x] 실습 1 Git Flow 시뮬레이션 완료
-- [ ] 실습 2 GitHub Flow 시뮬레이션 완료
+- [x] 실습 2 GitHub Flow 시뮬레이션 완료
 - [ ] 실습 3 Trunk-Based + Feature Flag 완료
 - [ ] 실습 4 SemVer + Tag 완료
 - [ ] 실습 5 Branch Protection 설정 완료
