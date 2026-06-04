@@ -14,6 +14,9 @@ Spring Boot 수업과 실습 과제를 정리하는 저장소입니다.
 | 04 | [04-msa-communication](./04-msa-communication) | MSA 서비스 간 통신 실습 |
 | 05 | [05-service-discovery-gateway](./05-service-discovery-gateway) | Eureka와 Gateway 기반 서비스 디스커버리 실습 |
 | 06 | [06-spring-cloud-gateway-mini-msa](./06-spring-cloud-gateway-mini-msa) | Spring Cloud Gateway 미니 MSA 라우팅 실습 |
+| 07 | [07-gateway-filter-advanced](./07-gateway-filter-advanced) | Spring Cloud Gateway 필터 심화 실습 |
+| 08 | [08-resilience-tracing](./08-resilience-tracing) | MSA 회복탄력성과 분산 추적 실습 |
+| 09 | [09-git-branch-strategy](./09-git-branch-strategy) | Git 브랜치 전략 실습 |
 
 ## 관리 방식
 
@@ -49,4 +52,14 @@ spring-practice/
     build.gradle
     settings.gradle
     src/
+  07-gateway-filter-advanced/
+    build.gradle
+    settings.gradle
+    src/
+  08-resilience-tracing/
+    build.gradle
+    settings.gradle
+    src/
+  09-git-branch-strategy/
+    README.md
 ```
