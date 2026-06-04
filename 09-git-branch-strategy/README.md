@@ -141,14 +141,14 @@ Allow deletions: off
 
 ### 체크리스트
 
-- [ ] GitHub 저장소 Settings > Branches로 이동
-- [ ] `main` 브랜치 보호 규칙 추가
-- [ ] PR 승인 1명 이상 필요하도록 설정
-- [ ] status check 통과 필요하도록 설정
-- [ ] conversation resolution 필요하도록 설정
-- [ ] force push 금지 확인
-- [ ] branch deletion 금지 확인
-- [ ] 직접 push 시도 시 실패하는지 확인
+- [x] GitHub 저장소 Settings > Branches로 이동
+- [x] `main` 브랜치 보호 규칙 추가
+- [x] PR 승인 1명 이상 필요하도록 설정
+- [x] status check 통과 필요 설정은 CI가 없어 생략
+- [x] conversation resolution 필요하도록 설정
+- [x] force push 금지 확인
+- [x] branch deletion 금지 확인
+- [x] 직접 push 시도 시 실패하는지 확인
 
 ## 필요한 확인 명령어
 
@@ -166,4 +166,4 @@ git tag -l
 - [x] 실습 2 GitHub Flow 시뮬레이션 완료
 - [x] 실습 3 Trunk-Based + Feature Flag 완료
 - [x] 실습 4 SemVer + Tag 완료
-- [ ] 실습 5 Branch Protection 설정 완료
+- [x] 실습 5 Branch Protection 설정 완료
