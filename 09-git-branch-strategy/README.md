@@ -115,14 +115,14 @@ main
 
 ### 체크리스트
 
-- [ ] `VERSION`을 `1.0.0`으로 변경하고 `v1.0.0` 태그 생성
-- [ ] 기능 추가 후 `1.1.0`, `v1.1.0` 생성
-- [ ] 버그 수정 후 `1.1.1`, `v1.1.1` 생성
-- [ ] Breaking Change 후 `2.0.0`, `v2.0.0` 생성
-- [ ] `git tag -l`로 전체 태그 확인
-- [ ] `git tag -l "v1.*"`로 v1 태그만 확인
-- [ ] `git log v1.0.0..v2.0.0 --oneline`으로 버전 간 변경 확인
-- [ ] `git show v2.0.0`으로 태그 메시지 확인
+- [x] `VERSION`을 `1.0.0`으로 변경하고 `v1.0.0` 태그 생성
+- [x] 기능 추가 후 `1.1.0`, `v1.1.0` 생성
+- [x] 버그 수정 후 `1.1.1`, `v1.1.1` 생성
+- [x] Breaking Change 후 `2.0.0`, `v2.0.0` 생성
+- [x] `git tag -l`로 전체 태그 확인
+- [x] `git tag -l "v1.*"`로 v1 태그만 확인
+- [x] `git log v1.0.0..v2.0.0 --oneline`으로 버전 간 변경 확인
+- [x] `git show v2.0.0`으로 태그 메시지 확인
 
 ## 실습 5. Branch Protection 설정
 
@@ -165,5 +165,5 @@ git tag -l
 - [x] 실습 1 Git Flow 시뮬레이션 완료
 - [x] 실습 2 GitHub Flow 시뮬레이션 완료
 - [x] 실습 3 Trunk-Based + Feature Flag 완료
-- [ ] 실습 4 SemVer + Tag 완료
+- [x] 실습 4 SemVer + Tag 완료
 - [ ] 실습 5 Branch Protection 설정 완료
