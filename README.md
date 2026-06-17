@@ -17,6 +17,7 @@ Spring Boot 수업과 실습 과제를 정리하는 저장소입니다.
 | 07 | [07-gateway-filter-advanced](./07-gateway-filter-advanced) | Spring Cloud Gateway 필터 심화 실습 |
 | 08 | [08-resilience-tracing](./08-resilience-tracing) | MSA 회복탄력성과 분산 추적 실습 |
 | 09 | [09-git-branch-strategy](./09-git-branch-strategy) | Git 브랜치 전략 실습 |
+| 10 | [10-kafka-spring-docker-ui](./10-kafka-spring-docker-ui) | Kafka와 Spring Boot 메시징 실습 |
 
 ## 관리 방식
 
@@ -62,4 +63,9 @@ spring-practice/
     src/
   09-git-branch-strategy/
     README.md
+  10-kafka-spring-docker-ui/
+    build.gradle
+    settings.gradle
+    docker-compose.yml
+    src/
 ```

@@ -93,12 +93,13 @@ Apache Kafka 입문 6편: Spring Boot + Docker + 관리 콘솔
 ### 9. 트랜잭션
 
 - Kafka Producer 트랜잭션 설정 구조를 확인한다.
-- DB 저장과 Kafka 발행을 함께 처리하는 서비스 구조를 실습한다.
+- `transaction-id-prefix`와 `KafkaTemplate.executeInTransaction`으로 Kafka 발행 트랜잭션을 실습한다.
+- DB 트랜잭션과 Kafka 발행을 함께 묶는 구조는 Outbox 패턴이나 CDC가 더 안전하다는 점을 확인한다.
 
 ### 10. 더 해보면 좋은 실험
 
 - 같은 Key로 여러 메시지를 보내 같은 파티션에 들어가는지 확인한다.
-- Key 없이 메시지를 보내 파티션 분산을 확인한다.
+- Key 없이 메시지를 보내 Kafka가 파티션을 선택하는 흐름을 확인한다.
 - Consumer를 2개 실행해 파티션 할당을 확인한다.
 - Consumer 중지 후 재시작 시 offset부터 이어 읽는지 확인한다.
 - FAIL 메시지와 offset reset, rebalance를 실험한다.
@@ -168,63 +169,63 @@ implementation 'org.springframework.boot:spring-boot-starter-kafka'
 
 ### 1. 실습 준비
 
-- [ ] Spring Boot 프로젝트 생성
-- [ ] `docker-compose.yml` 작성
-- [ ] Kafka 컨테이너 실행
-- [ ] Kafka UI 접속 확인
+- [x] Spring Boot 프로젝트 생성
+- [x] `docker-compose.yml` 작성
+- [x] Kafka 컨테이너 실행
+- [x] Kafka UI 접속 확인
 
 ### 2. Kafka UI 토픽 관리
 
-- [ ] `orders` 토픽 생성
-- [ ] 파티션 수 3개 확인
-- [ ] Messages 탭 확인
-- [ ] Consumers 메뉴 확인
+- [x] `orders` 토픽 생성
+- [x] 파티션 수 3개 확인
+- [x] Messages 탭 확인
+- [x] Consumers 메뉴 확인
 
 ### 3. Spring Boot 설정
 
-- [ ] Kafka Producer 설정 작성
-- [ ] Kafka Consumer 설정 작성
-- [ ] Listener 수동 ack 설정 작성
+- [x] Kafka Producer 설정 작성
+- [x] Kafka Consumer 설정 작성
+- [x] Listener 수동 ack 설정 작성
 
 ### 4. Producer
 
-- [ ] `OrderProducer` 구현
-- [ ] 전송 성공 로그 확인
+- [x] `OrderProducer` 구현
+- [x] 전송 성공 로그 확인
 
 ### 5. Consumer
 
-- [ ] `OrderConsumer` 구현
-- [ ] 수동 ack 처리
-- [ ] Consumer 로그 확인
+- [x] `OrderConsumer` 구현
+- [x] 수동 ack 처리
+- [x] Consumer 로그 확인
 
 ### 6. 테스트 컨트롤러
 
-- [ ] `OrderController` 구현
-- [ ] curl로 메시지 발행
-- [ ] 같은 Key의 partition 순서 확인
+- [x] `OrderController` 구현
+- [x] curl로 메시지 발행
+- [x] 같은 Key의 partition 순서 확인
 
 ### 7. 흐름 확인
 
-- [ ] API 요청부터 Consumer 처리까지 검증
-- [ ] Kafka UI에서 메시지와 Lag 확인
+- [x] API 요청부터 Consumer 처리까지 검증
+- [x] Kafka UI에서 메시지와 Lag 확인
 
 ### 8. Retry + DLT
 
-- [ ] `@RetryableTopic` 적용
-- [ ] 실패 메시지 발생
-- [ ] Retry Topic 확인
-- [ ] DLT 확인
+- [x] `@RetryableTopic` 적용
+- [x] 실패 메시지 발생
+- [x] Retry Topic 확인
+- [x] DLT 확인
 
 ### 9. 트랜잭션
 
-- [ ] Kafka 트랜잭션 설정 작성
-- [ ] 트랜잭션 서비스 구조 확인
+- [x] Kafka 트랜잭션 설정 작성
+- [x] 트랜잭션 서비스 구조 확인
 
 ### 10. 추가 실험
 
-- [ ] 같은 Key 반복 발행 확인
-- [ ] Key 없는 메시지 분산 확인
-- [ ] Consumer 2개 실행 확인
-- [ ] Consumer 중지 후 이어 읽기 확인
-- [ ] offset reset 확인
-- [ ] rebalance 확인
+- [x] 같은 Key 반복 발행 확인
+- [x] Key 없는 메시지 파티션 처리 확인
+- [x] Consumer 2개 실행 확인
+- [x] Consumer 중지 후 이어 읽기 확인
+- [x] offset reset 확인
+- [x] rebalance 확인

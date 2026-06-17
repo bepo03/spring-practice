@@ -1,3 +1,32 @@
 spring:
   application:
     name: 10-kafka-spring-docker-ui
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      transaction-id-prefix: order-tx-
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+        linger.ms: 5
+        compression.type: lz4
+
+    consumer:
+      group-id: order-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+      max-poll-records: 100
+      properties:
+        partition.assignment.strategy: org.apache.kafka.clients.consumer.CooperativeStickyAssignor
+        max.poll.interval.ms: 300000
+
+    listener:
+      ack-mode: manual_immediate
+      concurrency: 3
